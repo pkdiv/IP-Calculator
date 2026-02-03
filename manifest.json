@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "IP Calculator",
+  "version": "1.0",
+  "description": "Calculate subnets, CIDR, and usable IP ranges.",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": []
+}

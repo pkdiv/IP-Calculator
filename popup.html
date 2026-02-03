@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+    :root {
+      --primary-color: #6366f1;
+      --primary-hover: #4f46e5;
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-color: #1e293b;
+      --text-secondary: #64748b;
+      --border-color: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --focus-ring: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    }
+
+    body {
+      width: 420px;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 200px;
+      padding-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin: 20px 0 16px;
+      text-align: center;
+    }
+
+    .input-group {
+      width: 100%;
+      margin-bottom: 12px;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      width: 85%;
+    }
+
+    .main-ip-group {
+      width: 85%;
+    }
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background-color: var(--card-bg);
+      font-size: 0.95rem;
+      color: var(--text-color);
+      outline: none;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+      -webkit-appearance: none;
+      appearance: none;
+      box-sizing: border-box;
+    }
+
+    input:not([readonly]):hover {
+      border-color: #cbd5e1;
+    }
+
+    input:not([readonly]):focus {
+      border-color: var(--primary-color);
+      box-shadow: var(--focus-ring);
+    }
+
+    input::placeholder {
+      color: var(--text-secondary);
+    }
+
+    input[readonly] {
+      background-color: #f1f5f9;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+
+    .copy-success {
+      border-color: #22c55e !important;
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2) !important;
+    }
+
+    .mode-selector {
+      display: flex;
+      justify-content: center;
+      background-color: #e2e8f0;
+      padding: 4px;
+      border-radius: 12px;
+      width: fit-content;
+      margin: 0 auto 16px;
+    }
+
+    .mode-selector label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 16px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      min-width: 80px;
+    }
+
+    .mode-selector input[type="radio"] {
+      display: none;
+    }
+
+    .mode-selector input[type="radio"]:checked+span {
+      background-color: white;
+      color: var(--primary-color);
+      box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.1);
+      font-weight: 600;
+    }
+
+    .toggle-option {
+      position: relative;
+    }
+
+    .toggle-option span {
+      display: block;
+      padding: 6px 16px;
+      border-radius: 8px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>IP Calculator</h3>
+
+  <div class="mode-selector">
+    <label class="toggle-option">
+      <input type="radio" name="ipMode" value="ipv4" checked>
+      <span>IPv4</span>
+    </label>
+    <label class="toggle-option">
+      <input type="radio" name="ipMode" value="ipv6">
+      <span>IPv6</span>
+    </label>
+  </div>
+
+  <div class="input-group main-ip-group" style="display: flex; align-items: center; gap: 8px;">
+    <input type="text" id="ipAddress" placeholder="IP Address e.g. 192.168.1.1" style="flex: 3;">
+    <span style="font-weight: 600; color: var(--text-secondary);">/</span>
+    <input type="number" id="cidr" placeholder="24" min="0" max="128" style="flex: 1;">
+  </div>
+
+
+  <div id="ipv4-results" class="results-grid">
+    <div class="input-group">
+      <label>Netmask</label>
+      <input type="text" id="netmask" readonly>
+    </div>
+    <div class="input-group">
+      <label>Wildcard</label>
+      <input type="text" id="wildcard" readonly>
+    </div>
+    <div class="input-group">
+      <label>Network</label>
+      <input type="text" id="network" readonly>
+    </div>
+    <div class="input-group">
+      <label>Broadcast</label>
+      <input type="text" id="broadcast" readonly>
+    </div>
+    <div class="input-group">
+      <label>HostMin</label>
+      <input type="text" id="hostMin" readonly>
+    </div>
+    <div class="input-group">
+      <label>HostMax</label>
+      <input type="text" id="hostMax" readonly>
+    </div>
+    <div class="input-group" style="grid-column: span 2;">
+      <label>Hosts/Net</label>
+      <input type="text" id="hostsPerNet" readonly>
+    </div>
+  </div>
+
+
+  <div id="ipv6-results" class="results-grid hidden">
+    <div class="input-group" style="grid-column: span 2;">
+      <label>Compressed Address</label>
+      <input type="text" id="ipv6-compressed" readonly>
+    </div>
+    <div class="input-group" style="grid-column: span 2;">
+      <label>Expanded Address</label>
+      <input type="text" id="ipv6-expanded" readonly>
+    </div>
+    <div class="input-group" style="grid-column: span 2;">
+      <label>Prefix (Network)</label>
+      <input type="text" id="ipv6-prefix" readonly>
+    </div>
+    <div class="input-group">
+      <label>Prefix Length</label>
+      <input type="text" id="ipv6-prefix-len" readonly>
+    </div>
+    <div class="input-group">
+      <label>Total Hosts</label>
+      <input type="text" id="ipv6-hosts" readonly>
+    </div>
+    <div class="input-group" style="grid-column: span 2;">
+      <label>Range Start</label>
+      <input type="text" id="ipv6-range-start" readonly>
+    </div>
+    <div class="input-group" style="grid-column: span 2;">
+      <label>Range End</label>
+      <input type="text" id="ipv6-range-end" readonly>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
