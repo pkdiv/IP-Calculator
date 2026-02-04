@@ -2,6 +2,19 @@
 
 A clean, modern browser extension for calculating IPv4 and IPv6 subnet details. Built for network engineers, developers, and students who need quick and accurate IP calculations properly styled for your browser.
 
+<a href="https://chromewebstore.google.com/detail/ip-calculator/nmkflmaamikcjacnllcflhjhbnpbklom">
+  <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" width="24" height="24" /> 
+  Download for Chrome 
+</a>
+
+<br>
+
+<a href="https://addons.mozilla.org/en-US/firefox/addon/ip-calc/">
+  <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" width="24" height="24" /> 
+  Download for Firefox
+</a>
+
+
 ## Features
 
 - **Dual Mode Support**: Seamlessly switch between **IPv4** and **IPv6** calculations.
