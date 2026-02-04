@@ -2,19 +2,6 @@
 
 A clean, modern browser extension for calculating IPv4 and IPv6 subnet details. Built for network engineers, developers, and students who need quick and accurate IP calculations properly styled for your browser.
 
-<a href="https://chromewebstore.google.com/detail/ip-calculator/nmkflmaamikcjacnllcflhjhbnpbklom">
-  <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" width="24" height="24" /> 
-  Download for Chrome 
-</a>
-
-<br>
-
-<a href="https://addons.mozilla.org/en-US/firefox/addon/ip-calc/">
-  <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" width="24" height="24" /> 
-  Download for Firefox
-</a>
-
-
 ## Features
 
 - **Dual Mode Support**: Seamlessly switch between **IPv4** and **IPv6** calculations.
@@ -31,16 +18,19 @@ A clean, modern browser extension for calculating IPv4 and IPv6 subnet details. 
 
 ## Installation
 
-This extension is built to be loaded as an "unpacked" extension in Chromium-based browsers (Chrome, Edge, Brave, Opera).
+<a href="https://chromewebstore.google.com/detail/ip-calculator/nmkflmaamikcjacnllcflhjhbnpbklom">
+  <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" width="24" height="24" /> 
+  Download for Chrome 
+</a>
 
-1.  **Clone or Download** this repository to your local machine.
-2.  Open your browser and navigate to the extensions management page:
-    *   **Chrome/Brave**: `chrome://extensions`
-    *   **Edge**: `edge://extensions`
-3.  Enable **Developer Mode** (usually a toggle in the top-right corner).
-4.  Click **Load unpacked**.
-5.  Select the directory where you cloned/downloaded this project.
-6.  The **IP Calculator** icon should appear in your toolbar.
+<br>
+
+<a href="https://addons.mozilla.org/en-US/firefox/addon/ip-calc/">
+  <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" width="24" height="24" /> 
+  Download for Firefox
+</a>
+<br >
+
 
 ## Usage
 
